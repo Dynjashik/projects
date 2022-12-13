@@ -1,0 +1,88 @@
+file = open("advent/1/input.txt", "r")
+
+max_cal = 0
+max_current = 0
+for line in file:
+    if line != "\n":
+        max_current+= int(line)
+    else:
+        if max_current > max_cal:
+            max_cal= max_current
+        max_current = 0
+
+print(max_cal)
+
+file = open("advent/2/new2.txt", "r")
+
+my_score = 0
+opp_score = 0
+for line in file:
+  if line[0] == "A" and line[2]=="X":
+      my_score += 4
+      opp_score += 4
+
+  if line[0] == "B" and line[2]=="Y":
+      my_score+= 5
+      opp_score+= 5
+  
+  if line[0] == "C" and line[2]=="Z":
+      my_score+= 6
+      opp_score+= 6
+
+  if line[0] == "A" and line[2]=="Y":
+      my_score += 8
+      opp_score +=1
+
+  if line[0] == "A" and line[2]=="Z":
+      my_score += 3
+      opp_score += 7
+
+  if line[0] == "B" and line[2]=="Z":
+      my_score += 9
+      opp_score += 2
+
+  if line[0] == "B" and line[2]=="X":
+      my_score += 1
+      opp_score += 8
+
+  if line[0] == "C" and line[2]=="X":
+      my_score += 7
+      opp_score += 3
+
+  if line[0] == "C" and line[2]=="Y":
+      my_score += 2
+      opp_score += 9
+
+    
+print(my_score)
+
+3.
+file = open("advent/3/new3.txt", "r")
+
+comp_1 = []
+comp_2 = []
+letters = []
+sum_let = 0
+for line in file:
+    for a in range(len(line)):
+        if a < len(line)//2:
+            comp_1.append(line[a])
+        else:
+            comp_2.append(line[a])
+  
+    letters.extend(list(set(comp_1).intersection(comp_2)))
+    comp_1 = []
+    comp_2 = []
+
+print(letters)
+for letter in letters:
+    if ord(letter)> 96:
+        sum_let += ord(letter)-96
+    else:
+        sum_let += ord(letter)-38
+        
+
+print(list(set(comp_1).intersection(comp_2)) )
+print(sum_let)
+
+4.
